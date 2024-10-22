@@ -89,7 +89,7 @@ func (t *TGX) Search(query string, page int) ([]map[string]string, error) {
 		r["size"] = sizes[i]
 	}
 
-	logInfo(fmt.Sprintf("TGX search took %.2f seconds", time.Since(startTime).Seconds()))
+	logInfo(fmt.Sprintf("TGX search took %.2f seconds (%d)", time.Since(startTime).Seconds(), len(parsedResults)))
 	return parsedResults, nil
 }
 

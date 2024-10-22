@@ -67,7 +67,7 @@ func (y *YTS) Search(query string, page int) ([]map[string]string, error) {
 		})
 	})
 
-	logInfo(fmt.Sprintf("YTS search took %.2f seconds", time.Since(startTime).Seconds()))
+	logInfo(fmt.Sprintf("YTS search took %.2f seconds (%d)", time.Since(startTime).Seconds(), len(parsedResults)))
 	return parsedResults, nil
 }
 

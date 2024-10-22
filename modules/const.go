@@ -1,9 +1,7 @@
 package modules
 
 import (
-	"encoding/json"
 	"log"
-	"net/http"
 )
 
 func getUA() string {
@@ -26,14 +24,4 @@ func LogGlobalInfo(msg string) {
 
 func LogGlobalError(err error) {
 	logError(err)
-}
-
-func WriteJSON(w http.ResponseWriter, data interface{}, intent bool) {
-	w.Header().Set("Content-Type", "application/json")
-	enc := json.NewEncoder(w)
-	if intent {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		enc.SetIndent("", "  ")
-	}
-	enc.Encode(data)
 }

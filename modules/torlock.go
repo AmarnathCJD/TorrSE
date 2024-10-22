@@ -84,7 +84,7 @@ func (t *Tor) Search(query string, page int) ([]map[string]string, error) {
 		}
 	})
 
-	logInfo(fmt.Sprintf("TorLock search took %.2f seconds", time.Since(startTime).Seconds()))
+	logInfo(fmt.Sprintf("TorLock search took %.2f seconds (%d)", time.Since(startTime).Seconds(), len(parsedResults)))
 	return parsedResults, nil
 }
 

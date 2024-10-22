@@ -16,7 +16,7 @@ func NewTPB() *TPB {
 	return &TPB{}
 }
 
-func (t *TPB) Search(query string) ([]map[string]string, error) {
+func (t *TPB) Search(query string, page int) ([]map[string]string, error) {
 	startTime := time.Now()
 
 	encodedQuery := url.QueryEscape(query)
@@ -90,6 +90,6 @@ func (t *TPB) Search(query string) ([]map[string]string, error) {
 		})
 	})
 
-	logInfo("TPB search took " + fmt.Sprintf("%.2f", time.Since(startTime).Seconds()) + " seconds")
+	logInfo(fmt.Sprintf("Tpb search took %.2f seconds (%d)", time.Since(startTime).Seconds(), len(parsedResults)))
 	return parsedResults, nil
 }
