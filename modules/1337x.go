@@ -20,7 +20,7 @@ func (t *x1337) Search(query string, page int) ([]map[string]string, error) {
 	startTime := time.Now()
 
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", "https://www.1337xx.to/search/"+url.QueryEscape(query)+"/1/", nil)
+	req, err := http.NewRequest("GET", "https://www.1337x.to/search/"+url.QueryEscape(query)+"/1/", nil)
 	if err != nil {
 		return nil, err
 	}
